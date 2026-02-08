@@ -1,10 +1,13 @@
 from fastapi import FastAPI
+from backend.app.config.settings import settings
 
-app = FastAPI(title="AI Executive Assistant")
+app = FastAPI(title=settings.APP_NAME)
+
 
 @app.get("/")
 def root():
-    return {"message": "Backend Running"}
+    return {"message": settings.APP_NAME}
+
 
 @app.get("/health")
 def health():
